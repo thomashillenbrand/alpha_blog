@@ -7,4 +7,8 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id]) # this is now an instance variable available in the view
   end
 
+  def index
+    @articles = Article.all
+  end
+
 end
