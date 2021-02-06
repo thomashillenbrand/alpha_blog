@@ -11,4 +11,16 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
+  def new; end
+
+  def create
+    # render plain: params[:article]
+    @article = Article.new(params.require(:article).permit(:title, :description))
+    # render plain: @article.inspect
+    @article.save
+    # redirect_to article_path(@article)
+    # redirect_to @article
+    # redirect_to articles_path
+  end
+
 end
