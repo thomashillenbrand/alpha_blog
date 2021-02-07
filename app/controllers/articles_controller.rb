@@ -17,10 +17,15 @@ class ArticlesController < ApplicationController
     # render plain: params[:article]
     @article = Article.new(params.require(:article).permit(:title, :description))
     # render plain: @article.inspect
-    @article.save
-    # redirect_to article_path(@article)
-    # redirect_to @article
-    # redirect_to articles_path
+    if @article.save
+      flash[:notice] = "Article was created successfully."
+      # redirect_to article_path(@article)
+      redirect_to @article
+      # redirect_to articles_path
+    else
+      render 'new' # will have the article object created as instance variable
+    end
+
   end
 
 end
