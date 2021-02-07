@@ -11,7 +11,9 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
-  def new; end
+  def new
+    @article = Article.new #intiate to avoid errors on new page, but we also have "&".
+  end
 
   def create
     # render plain: params[:article]
@@ -26,6 +28,21 @@ class ArticlesController < ApplicationController
       render 'new' # will have the article object created as instance variable
     end
 
+  end
+
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    # byebug
+    @article = Article.find(params[:id])
+    if @article.update(params.require(:article).permit(:title, :description))
+      flash[:notice]="Article was updated successfully."
+      redirect_to @article
+    else
+      render 'edit'
+    end
   end
 
 end
