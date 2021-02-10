@@ -1,5 +1,44 @@
 @import 'node_modules/bootstrap/dist/css/bootstrap.css';
 
 .navbar {
-  background-color: burlywood !important;
+  background-color: black !important;
+}
+
+.nav-link {
+  color: white !important;
+}
+
+#logo {
+  //color: white !important;
+  float: left;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#home-container {
+  margin-top: 25px;
+}
+
+#home-jumbotron {
+  background-image: asset_url('mountain.jpg');
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+}
+
+html, body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+  background-color: lightgray;
+}
+
+#sticky-footer {
+  flex-shrink: unset;
 }
